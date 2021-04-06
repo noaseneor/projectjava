@@ -12,7 +12,18 @@ public class Point3D {
         this.y=y;
         this.z=z;
     }
-
+    public Coordinate Getx()
+    {
+        return x;
+    }
+    public Coordinate Gety()
+    {
+        return y;
+    }
+    public Coordinate Getz()
+    {
+        return z;
+    }
     public Point3D(double x,double y,double z)
     {
         this(new Coordinate(x),new Coordinate(y),new Coordinate(z));
@@ -48,7 +59,7 @@ public class Point3D {
     }
     public double distance(Point3D other)
     {
-        return (this.x.coord-other.x.coord)*(this.x.coord-other.x.coord)+(this.x.coord-other.x.coord)*(this.x.coord-other.x.coord)+(this.y.coord-other.y.coord)*(this.z.coord-other.z.coord);
+        return (this.x.coord-other.x.coord)*(this.x.coord-other.x.coord)+(this.y.coord-other.y.coord)*(this.y.coord-other.y.coord)+(this.z.coord-other.z.coord)*(this.z.coord-other.z.coord);
     }
     public double distancesquared(Point3D other)
     {

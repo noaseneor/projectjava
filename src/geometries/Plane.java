@@ -6,29 +6,32 @@ import primitives.Vector;
 public class Plane implements Geometry {
 
     Point3D q0;
-    Vector normal;
+    Vector vector;
     public Plane(Point3D a, Point3D b, Point3D c)
     {
         this.q0= new Point3D(a);
         Vector v1 = b.substract(a);
-        normal = (v1.crossProduct(c.substract(a))).normalize();
+        vector = (v1.crossProduct(c.substract(a)));
         //normal=null;
 
     }
     public Plane(Point3D p, Vector v)
     {
         this.q0=new Point3D(p);
-        this.normal=v;
+        this.vector=v;
+    }
+    public Vector getNormal()
+    {
+        return vector;
     }
     @Override
     public Vector getNormal(Point3D p)
     {
-        return null;
+        Vector v= this.q0.substract(p);
+        return vector.crossProduct(v);
+
     }
-    public Vector getNormal()
-    {
-        return getNormal(null);
-    }
+
 
 
 
